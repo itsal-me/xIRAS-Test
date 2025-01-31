@@ -1,0 +1,54 @@
+# Git Ignore for React + Django Project
+
+# 1️⃣ General Python Ignore
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+env/
+venv/
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.DS_Store
+
+# 2️⃣ Virtual Environment
+venv/
+env/
+*.env
+.env.local
+.env.production
+.env.development
+*.venv
+
+# 3️⃣ Django Specific
+/media/
+/staticfiles/
+*.db
+db.sqlite3
+migrations/**/000*.py  # Ignore Django migrations except __init__.py
+
+# 4️⃣ Node.js (React) Ignore
+node_modules/
+npm-debug.log*
+yarn-error.log
+.yarn/
+.yarnrc
+.pnp.*
+.vscode/
+
+# 5️⃣ React Build Files
+/frontend/build/
+frontend/node_modules/
+
+# 6️⃣ Ignore IDE/Editor Files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# 7️⃣ Ignore Render/Deployment Files
+render.yaml
