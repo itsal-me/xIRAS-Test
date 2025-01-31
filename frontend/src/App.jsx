@@ -67,9 +67,11 @@ export default function App() {
   };
 
   return (
+    
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
       <h1 className="text-3xl font-semibold text-black mb-8">xIRAS</h1>
       {!accessToken ? (
+        <>
         <form className="bg-white p-8 rounded-lg shadow-xl w-96 border" onSubmit={handleLogin}>
           <h2 className="text-2xl font-semibold text-black mb-6">Login</h2>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
@@ -92,7 +94,7 @@ export default function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="Enter your IRAS password"
+              placeholder="Enter your encrypted IRAS password"
             />
           </label>
           <button
@@ -103,6 +105,9 @@ export default function App() {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+
+        <p className="p-8"><strong>Clone or download the <a className="underline" href="https://github.com/itsal-me/Capture-IRAS">"Capture IRAS"</a> git repository to your computer. Since it's a browser extension, enable Developer Mode in your Chrome-based browser and upload the extension in the "Extensions" section. Follow the instructions of "readme.md" file in git repository to upload it. Use it after logging into IRAS to capture your encrypted password.</strong></p>
+        </>
       ) : (
         <div className="bg-white p-8 rounded-lg shadow-xl w-96 border">
           <h2 className="text-2xl font-semibold text-black mb-6">Welcome to xIRAS!</h2>
@@ -129,5 +134,6 @@ export default function App() {
         </div>
       )}
     </div>
+    
   );
 }
