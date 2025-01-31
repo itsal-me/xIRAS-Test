@@ -68,7 +68,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
-      <h1 className="text-3xl font-semibold text-black mb-8">Student Portal</h1>
+      <h1 className="text-3xl font-semibold text-black mb-8">xIRAS</h1>
       {!accessToken ? (
         <form className="bg-white p-8 rounded-lg shadow-xl w-96 border" onSubmit={handleLogin}>
           <h2 className="text-2xl font-semibold text-black mb-6">Login</h2>
