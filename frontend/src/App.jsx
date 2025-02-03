@@ -92,8 +92,10 @@ export default function App() {
   }, [accessToken]);
 
   return (
-    <div className="min-h-screen bg-white flex">
+    <div className="min-h-screen bg-white flex flex-col justify-center items-center">
       {!accessToken ? (
+
+        <>
         <div className="flex flex-col items-center justify-center w-full">
           <h1 className="text-4xl font-bold mb-8">xIRAS</h1>
           <form
@@ -135,7 +137,14 @@ export default function App() {
               {loadingStudent ? "Logging in..." : "Login"}
             </button>
           </form>
+
         </div>
+
+        <p className="p-8 text-sm text-gray-600 text-center">
+        Clone or download the <a className="underline text-black" href="https://github.com/itsal-me/Capture-IRAS">"Capture IRAS"</a> GitHub repository to get your encrypted password.
+        </p>  
+
+        </>
       ) : (
         <div className="flex w-full">
           {/* Sidebar */}
