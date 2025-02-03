@@ -3,12 +3,17 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 import requests
 
-API_TOKEN_URL = "https://iras.iub.edu.bd:8079/v3/account/token"
-STUDENT_DETAILS_URL = "https://iras.iub.edu.bd:8079/api/v2/profile/{}/load-student-details"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_TOKEN_URL = os.getenv("API_TOKEN_URL")
+STUDENT_DETAILS_URL = os.getenv("STUDENT_DETAILS_URL")
 
 @api_view(["POST"])
 def get_access_token(request):
-    email = request.data.get("email")
+    username = request.data.get("username")
     password = request.data.get("password")
 
     headers = {
@@ -17,10 +22,10 @@ def get_access_token(request):
         "Referer": "https://irasv1.iub.edu.bd/"
     }
 
-    if not email or not password:
+    if not username or not password:
         return JsonResponse({"error": "Email and password are required"}, status=400)
 
-    response = requests.post(API_TOKEN_URL, json={"email": email, "password": password}, headers=headers)
+    response = requests.post(API_TOKEN_URL, json={"email": username, "password": password}, headers=headers)
 
     if response.status_code == 200:
         return JsonResponse(response.json())
