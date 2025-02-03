@@ -118,7 +118,7 @@ export default function App() {
             </label>
 
             <label className="block mb-6">
-              <span className="font-medium">Password:</span>
+              <span className="font-medium">Encrypted Password:</span>
               <input
                 type="password"
                 className="w-full p-3 border border-gray-400 rounded mt-2 focus:outline-none focus:ring-2 focus:ring-black transition-all"
